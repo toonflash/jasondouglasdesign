@@ -1,0 +1,131 @@
+@font-face {
+  font-family: "dankMono-regular";
+  src: url(../assets/fonts/dankMono/DankMono-Regular.ttf);
+}
+
+@font-face {
+  font-family: "dankMono-italic";
+  src: url(../assets/fonts/dankMono/DankMono-Italic.ttf);
+}
+
+@font-face {
+  font-family: "KaushanScript-Regular";
+  src: url(../assets/fonts/kaushanScript/KaushanScript-Regular.ttf);
+}
+
+@font-face {
+  font-family: "allenoire";
+  src: url(../assets/fonts/allenoire/Allenoire.ttf);
+}
+
+// @font-face {
+//   font-family: "Montserrat-Regular";
+//   src: url(../assets/fonts/montserrat/Montserrat-Regular.ttf);
+// }
+
+// @font-face {
+//   font-family: "Montserrat-Medium";
+//   src: url(../assets/fonts/montserrat/Montserrat-Medium.ttf);
+// }
+
+h1 {
+  font-family: "allenoire", Georgia, 'Times New Roman', Times, serif;
+  @include font(26, 32);
+  font-style: normal;
+  font-variant: normal;
+  letter-spacing: 0.1px;
+
+  @include respond-to($desktop) {
+    @include font(44, 50);
+  }
+  
+}
+
+h2 {
+  font-family: "allenoire", Georgia, 'Times New Roman', Times, serif;
+  @include font(37, 43);
+  font-style: normal;
+  font-variant: normal;
+}
+
+h3 {
+  font-family: "allenoire", Georgia, 'Times New Roman', Times, serif;
+  @include font(29, 35);
+  font-style: normal;
+  font-variant: normal;
+}
+
+h4 {
+  font-family: "allenoire", Georgia, 'Times New Roman', Times, serif;
+  @include font(23, 29);
+  font-style: normal;
+  font-variant: normal;
+}
+
+h5 {
+  font-family: "allenoire", Georgia, 'Times New Roman', Times, serif;
+  @include font(18, 24);
+  font-style: normal;
+  font-variant: normal;
+}
+
+p,
+label,
+button[type="submit"],
+textarea {
+  font-family: Arial, "Lucida Grande", sans-serif; 
+  // font-family: "Montserrat-Regular", sans-serif;
+  letter-spacing: 0.5px;
+  @include font(16, 22);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  margin-bottom: 10px;
+
+  //@include font(18, 24);
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+blockquote {
+  font-family: Arial, "Lucida Grande", sans-serif; 
+  // font-family: "Montserrat-Regular", sans-serif;
+  letter-spacing: 0.5px;
+  @include font(17, 23);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+pre {
+  font-family: "dankMono-regular", monospace, sans-serif;
+  @include font(11, 17);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+.italic {
+  font-style: italic;
+  @include font(12, 18);
+}
+
+
+a {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.bold {
+  font-weight: 700;
+}
+
+
+

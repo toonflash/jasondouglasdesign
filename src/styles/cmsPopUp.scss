@@ -1,0 +1,28 @@
+.cmsPopUp {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $off-white;
+  color: $dark-gray;
+  z-index: 1;
+
+  &__wrapper {
+    width: 90%;
+    margin: 100px auto 0;
+    
+    h1 {
+      margin-bottom: 20px;
+    }
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,36 @@
+@import './variables.scss';
+
+.contactForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  row-gap: 40px;
+  border-radius: 3px;
+  padding: 20px 0;
+
+  input,
+  textarea {
+    width: 100%;
+    border: unset;
+    border-bottom: 1px solid white;
+    background-color: unset;
+  }
+
+  .guestName {
+    width: calc(50% - 10px);
+  }
+
+  .email {
+    width: 100%;
+  }
+
+  .message {
+    width: 100%;
+  }
+
+  .submit {
+    color: white;
+  }
+
+}

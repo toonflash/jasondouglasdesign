@@ -1,0 +1,110 @@
+// .macbookSlider {
+//   display: grid;
+//   height: calc(100vh - 80px);
+
+//   &__slide {
+//     position: relative;
+//     display: block;
+//     height: 100%;
+//   }
+// }
+
+
+
+.macbook {
+  position: relative;
+  display: block;
+  width: 366px;
+  height: 209px;
+  background-image: url('../assets/images/macbook.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  width: 732px;
+  height: 418px;
+
+  // @include respond-to($tablet-portrait) {
+  //   cursor: zoom-in;
+  // }
+
+  // SE phone
+  transform: scale(0.7);
+  margin-left: -40px;
+
+  @include respond-to($phone-medium) {
+    transform: scale(0.8);
+    margin-left: -15px;
+  }
+
+  @include respond-to($phone-large) {
+    //transform: unset;
+    margin: 0 auto 40px;
+  }
+  
+}
+
+
+.macbookPageBg {
+  position: absolute;
+  background-image: url('../assets/images/pageBg.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  left: 42px;
+  top: 14.8px;
+  width: 275px;
+  height: 170px;
+
+  left: 85px;
+  top: 29.8px;
+  width: 551px;
+  height: 340px;
+}
+
+.macbookSlider {
+  position: absolute;
+  background-color: white;
+  top: 53px;
+  left: 0px;
+  width: 276px;
+  height: 131px;
+
+  
+  width: 552px;
+  height: 262px;
+
+  &.openroad {
+    top: 0;
+  }
+}
+
+
+.indochino,
+.macbook {
+  .macbookPageBg {
+    overflow: hidden;
+  }
+
+  .macbookPageBg {
+    position: relative;
+
+    img.sliding {
+      width: 100%;
+      -webkit-animation: mover 7s infinite ease-in-out ;
+      animation: mover 7s infinite ease-in-out;
+      // animation-iteration-count: 1;
+    }
+
+  }
+}
+
+.openroad {
+  .macbookSlider {
+    top: 0;
+  }
+}
+
+
+
+
+
+

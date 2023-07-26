@@ -1,0 +1,49 @@
+.navigation {
+  position: fixed;
+  width: 100%;
+}
+
+
+.menu {
+  position: absolute;
+  left: -100%;
+  top: 68.5px;
+  height: calc(100vh - 80px);
+  //width: 350px;
+  width: 300px;
+  padding: 20px;
+  background-color: white;
+  display: block;
+  z-index: 1;
+  transition: all ease-in-out 0.15s;
+
+  &.is-visible {
+    left: 0;
+  }
+}
+
+.menuList {
+
+  &__link {
+    width: fit-content;
+    @include font(20, 26);
+    font-weight: 700;
+    margin-bottom: 20px;
+    cursor: pointer;
+    color: $dark-gray;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &.active {
+        opacity: 0.5;
+        text-decoration: underline;
+      }
+    }
+
+  }
+}

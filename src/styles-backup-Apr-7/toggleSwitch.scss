@@ -1,0 +1,92 @@
+
+   span.switcher {
+      position: relative;
+      width: 185px;
+      margin-right: 25px;
+
+      input {
+         appearance: none;
+         position: relative;
+         width: 185px;
+         height: 36px;
+         border-radius: 25px;
+         background-color: $dark-gray;
+         outline:none;
+         border: 1px solid $dark-gray; 
+         cursor: pointer;
+
+         &:before, &:after {
+            z-index: 2;
+            position: absolute;
+            top:50%;
+            transform:translateY(-50%);
+            color: white;
+         }
+         &:before {
+            content: 'WORK';
+            left: 20px;
+            font-weight: 700;
+         }
+         &:after {
+            content: 'PARTY';
+            right: 20px;
+            font-weight: 700;
+         }
+      }
+      label {
+         z-index: 1;
+         position: absolute;
+         top: 10px;
+         bottom: 10px;
+         height: 22px;
+         border-radius: 20px;
+      }
+      &.switcher-1 {
+        cursor: pointer;
+         input {
+            //transition:.25s -.1s;
+
+            &:not(:checked) {
+               background-color: white;
+
+               &:before {
+                  color: white;
+                  //transition: color .5s .2s;
+               }
+
+               &:after {
+                  color: $dark-gray;
+                  //transition: color .5s;
+               }
+
+               &+label {
+                  left: 12px;
+                  right: 90px;
+                  background: $dark-gray;
+                  //transition: left .5s, right .4s .2s;
+               }
+            }
+            &:checked {
+               background: $dark-gray;
+               //transition: background .5s -.1s;
+
+               &:before {
+                  color: white;
+                  //transition: color .5s;
+               }
+
+               &:after {
+                  color: $dark-gray;
+                  //transition: color .5s .2s;
+               }
+
+               &+label {
+                  left: 100px;
+                  right: 5px;
+                  background:white;
+                  //transition: left .4s .2s, right .5s, background .35s -.1s;
+               }
+            }
+         }
+      }
+   }

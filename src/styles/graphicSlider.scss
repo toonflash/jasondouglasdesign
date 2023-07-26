@@ -1,0 +1,60 @@
+.graphicSlider {
+  display: grid;
+
+  &__slide {
+    position: relative;
+    width: 100%;
+
+    img {
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.graphicSlider {
+
+  .leftArrow {
+    position: absolute;
+    top: calc(50% - 20px);
+    left: 0;
+    width: 30px;
+    height: 40px;
+    font-size: 40px;
+    padding: unset;
+    z-index: 1;
+    cursor: pointer;
+    transition: all ease-in-out 0.15s;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  
+    svg {
+      fill: $dark-gray;
+    }
+  }
+  
+  .rightArrow {
+    position: absolute;
+    top: calc(50% - 20px);
+    right: 0;
+    width: 30px;
+    height: 40px;
+    font-size: 40px;
+    padding: unset;
+    z-index: 1;
+    cursor: pointer;
+    transition: all ease-in-out 0.15s;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  
+    svg {
+      fill: $dark-gray;
+    }
+  }
+
+}
+

@@ -1,0 +1,69 @@
+@mixin white-gradient {
+	background: linear-gradient(to right,  rgba(34,34,34,1) 0%,rgba(34,34,34,0) 100%);
+}
+
+.marqueeWrapper {
+  position: relative; 
+  width: 100%;
+  overflow: hidden;
+  margin-top: 40px;
+
+    &::before,
+    &::after {
+      @include white-gradient;
+      content: "";
+      height: 40px;
+      position: absolute;
+      width: 100px;
+      z-index: 1;
+    }
+
+    &::after {
+      right: 0;
+      top: 0;
+      transform: rotate(180deg);
+    }
+
+  &__marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: marquee 60s linear infinite;
+    animation-direction: alternate;
+
+    p {
+      display: inline-block;
+      padding: 0 20px;
+      filter: grayscale(1);
+
+      img {
+        width: 25px;
+        height: 25px;
+
+        &.npmIcon {
+          width: 45px;
+          height: auto;
+          margin-bottom: -12px;
+        }
+
+        &.appleIcon,
+        &.wordpressIcon,
+        &.squarespaceIcon {
+          filter: invert(1);
+        }
+      }
+    }
+  }
+}
+
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+

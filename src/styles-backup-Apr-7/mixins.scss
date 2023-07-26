@@ -1,0 +1,142 @@
+/* Convert a pixel value into a rem value
+ 	eample usage: 
+	  margin: space(16); 			// returns 16px value in rems
+	  margin: space(17); 			// rounds 17 to nearest 4 (16), returns same as above
+	  margin: space(17, false); 	// doesn't round, returns 17px in rems
+	please note, the values are dependednt on the root (html) font size, which is set in _reset.scss
+*/
+@use "sass:math";
+$base-font-size: 16; 
+
+@function space($space, $rounding: false) {
+	$pixels: $space;
+
+	@if ($rounding) {
+		/* $pixels will be the nearest multiple of $base-space-unit 
+			e.g. 14, 15, 16, 17 all return 16
+		*/
+		$multiple: round($pixels / $base-space-unit);
+		$pixels: $multiple * $base-space-unit 
+	}
+
+	$value: math.div($pixels, $base-font-size);
+	@return ($value + rem); 
+}
+
+// @include font(font-size, line-height);
+@mixin font($font-size, $line-height: 0) {
+  font-size: space($font-size, false);
+  @if $line-height != 0 {
+      line-height: space($line-height, false);
+  }
+}
+
+
+
+/* Set Breakpoints: 
+    @include respond-to($tablet) {
+        // applies to 768 and above
+    } 
+    @include respond-to($tablet, $tablet-landscape) {
+        // applies to 768 to 1024, turns off at 1025 
+    } 
+    @include respond-to(500px) {
+        // a one off breakpoint, applies 500px and above
+    } 
+*/
+
+@mixin respond-to($min-width, $max-width: false) {
+  @media screen and (min-width: $min-width) {
+      @if $max-width {
+          @media (max-width: $max-width) {
+              @content;
+          }
+      } @else {
+          @content;
+      }
+  }
+}
+
+// @include centered;
+@mixin centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+// @include centeredX;
+@mixin centeredX {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+// @include centeredY;
+@mixin centeredY {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+// @include centeredUnset;
+@mixin centeredUnset {
+  position: relative;
+  top: unset;
+  left: unset;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+//@include border-radius(px);
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  /* stops bg color from leaking outside the border: */
+  background-clip: padding-box; 
+}
+
+//@include box-shadow(inset, 0, 1px, 1px, rgba(0, 0, 0, 0.5));
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+  -webkit-box-shadow:$top $left $blur $color #{$inset};
+  -moz-box-shadow:$top $left $blur $color #{$inset};
+  box-shadow:$top $left $blur $color #{$inset};
+}
+
+// @include transform(rotate(180deg));
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+// @include transition(name, value);
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+//Full Width Child Inside Set Width Parent (banners etc...);
+// @include fullWidthChild
+@mixin fullWidthChild {
+  position: relative;
+  width: 100vw;
+  left: calc(-50vw + 50%);
+}
+
